@@ -4,3 +4,5 @@
 # Folders
 dist/
 node_modules/
+.scannerwork
+.vscode

@@ -14,7 +14,7 @@ export default class SearchSurvey {
         return this.surveyRepository.findAllSurveys();
     }
 
-    async findSurveyById(surveyId: Number) {
+    async findSurveyById(surveyId: number) {
         return this.isValidSurvey(await this.surveyRepository.findSurveyById(SurveyId.create(surveyId)));
     }
 

@@ -9,7 +9,7 @@ export default class MySqlSurveyRepository extends MySqlRepository implements Su
         return new Promise<Survey>((resolve, reject) => {
             const query = `SELECT Id, Name FROM Surveys WHERE Id = ${surveyId.value()}`;
         
-            this.executeQuery(query, (error, results, fields) => {
+            this.executeQuery(query, (error, results) => {
                 if(error) reject(error);
     
                 resolve(Survey.createFromPrimitives(results[0].Id, results[0].Name));

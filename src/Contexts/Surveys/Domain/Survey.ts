@@ -29,7 +29,7 @@ export default class Survey extends AggregateRoot {
         }
     }
 
-    public static createFromPrimitives(surveyId: Number, surveyName: String) : Survey {
+    public static createFromPrimitives(surveyId: number, surveyName: string) : Survey {
         const survey = new Survey(SurveyId.create(surveyId), new SurveyName(surveyName));
 
         survey.record(new SurveyCreatedDomainEvent(

@@ -1,7 +1,7 @@
 export default class StringValueObject {
-    private stringValue: String;
+    private stringValue: string;
 
-    constructor(value: String) {
+    constructor(value: string) {
         this.stringValue = value;
     }
 

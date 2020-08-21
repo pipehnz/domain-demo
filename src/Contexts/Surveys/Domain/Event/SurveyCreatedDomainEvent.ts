@@ -1,10 +1,10 @@
 import DomainEvent from "@App/Shared/Domain/Bus/Event/DomainEvent";
 
 export default class SurveyCreatedDomainEvent extends DomainEvent {
-    private surveyId: Number;
-    private name: String;
+    private surveyId: number;
+    private name: string;
     
-    constructor(aggregateId: string, eventId: string, ocurredOn: string, surveyId: Number, surveyName: String) {
+    constructor(aggregateId: string, eventId: string, ocurredOn: string, surveyId: number, surveyName: string) {
         super(aggregateId, eventId, ocurredOn);
 
         this.surveyId = surveyId;

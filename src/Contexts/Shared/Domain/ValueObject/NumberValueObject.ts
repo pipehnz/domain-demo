@@ -1,7 +1,7 @@
 export default class NumberValueObject {
-    private numberValue: Number;
+    private numberValue: number;
 
-    constructor(value: Number) {
+    constructor(value: number) {
         this.numberValue = value;
     }
 
