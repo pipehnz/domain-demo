@@ -1,0 +1,30 @@
+{
+  "name": "ddd-resolve",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "build": "babel src --out-dir dist --copy-files --extensions '.ts'",
+    "clean": "rm -fdr ./dist",
+    "start:api": "node dist/Contexts/Surveys/Infrastructure/API/Server.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@babel/cli": "^7.10.5",
+    "@babel/core": "^7.11.1",
+    "@babel/plugin-transform-modules-commonjs": "^7.10.4",
+    "@babel/preset-typescript": "^7.10.4",
+    "@types/express": "^4.17.7",
+    "@types/mysql": "^2.15.15",
+    "babel-plugin-minify-mangle-names": "^0.5.0",
+    "babel-plugin-module-resolver": "^4.0.0"
+  },
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "dotenv": "^8.2.0",
+    "express": "^4.17.1",
+    "mysql": "^2.18.1"
+  }
+}

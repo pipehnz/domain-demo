@@ -1,0 +1,18 @@
+{
+    "presets": [
+        "@babel/preset-typescript"
+    ],
+    "plugins": [
+        [
+          "module-resolver",
+          {
+            "root": ["./"],
+            "alias": {
+              "@App": "./src/Contexts"
+            }
+          }
+        ],
+        "@babel/plugin-transform-modules-commonjs",
+        "minify-mangle-names"
+    ]
+}
