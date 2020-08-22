@@ -9,7 +9,7 @@
     "start:api": "node dist/Contexts/Surveys/Infrastructure/API/Server.js",
     "test": "jest",
     "test:coverage": "jest --coverage",
-    "test:ci": "jest --ci --coverage"
+    "test:ci": "jest --ci --coverage && codecov -t ${{ secrets.CODECOV_TOKEN }}"
   },
   "keywords": [],
   "author": "",
