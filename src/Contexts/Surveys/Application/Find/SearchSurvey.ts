@@ -1,6 +1,6 @@
 import Survey from "@App/Surveys/Domain/Survey";
 import SurveyId from "@App/Surveys/Domain/SurveyId";
-import SurveyNotFound from "@App/Surveys/Domain/SurveyNotFound";
+import SurveyException from "@App/Surveys/Domain/SurveyException";
 import SurveyRepository from "@App/Surveys/Domain/SurveyRepository";
 
 export default class SearchSurvey {    
@@ -20,7 +20,7 @@ export default class SearchSurvey {
 
     private isValidSurvey(survey: Survey) {
         if(survey.Id().value() == 0)
-            throw new SurveyNotFound('Survey does not exist')
+            throw new SurveyException('Survey does not exist')
         
         return survey;
     }

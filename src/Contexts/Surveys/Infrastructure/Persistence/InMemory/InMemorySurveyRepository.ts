@@ -1,6 +1,6 @@
 import Survey from '@App/Surveys/Domain/Survey';
 import SurveyId from '@App/Surveys/Domain/SurveyId';
-import SurveyNotFound from '@App/Surveys/Domain/SurveyNotFound';
+import SurveyException from '@App/Surveys/Domain/SurveyException';
 import SurveyRepository from '@App/Surveys/Domain/SurveyRepository';
 
 export default class InMemorySurveyRepository implements SurveyRepository {
@@ -19,7 +19,7 @@ export default class InMemorySurveyRepository implements SurveyRepository {
             const survey = this.surveys.find((surveyFinded, index: number) => surveyFinded.toPrimitives().Id == surveyId.value());
 
             if (survey === null) {
-                reject(new SurveyNotFound('Surveys does not exists'))
+                reject(new SurveyException('Surveys does not exists'))
             }
 
             resolve(survey);
