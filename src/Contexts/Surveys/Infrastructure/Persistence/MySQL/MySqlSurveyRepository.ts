@@ -5,7 +5,7 @@ import MySqlRepository from "@App/Shared/Infrastructure/MySqlRepository";
 
 export default class MySqlSurveyRepository extends MySqlRepository implements SurveyRepository {
 
-    findSurveyById(surveyId: SurveyId): Promise<Survey> {
+    findById(surveyId: SurveyId): Promise<Survey> {
         return new Promise<Survey>((resolve, reject) => {
             const query = `SELECT Id, Name FROM Surveys WHERE Id = ${surveyId.value()}`;
         
@@ -17,7 +17,7 @@ export default class MySqlSurveyRepository extends MySqlRepository implements Su
         })
     }
 
-    findAllSurveys(): Survey[] {
+    getAll(): Array<Survey> {
     //     const query = `SELECT Id, Name FROM Surveys`;
     //     const surveysDto: Array<SurveyDTO> = await this.findAll(query);
     //     const surveys =  surveysDto.map((surveyDto: SurveyDTO) => Survey.createFromDto(surveyDto));

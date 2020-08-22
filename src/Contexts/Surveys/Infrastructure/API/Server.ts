@@ -3,9 +3,10 @@ import bodyParser from 'body-parser';
 import { config } from 'dotenv'
 
 import RegisterSurvey from '@App/Surveys/Application/Create/RegisterSurvey';
-import SearchSurvey from '@App/Surveys/Application/Find/SearchSurvey';
+import SearchSurveyById from '@App/Surveys/Application/Find/SearchSurveyById';
 import MySqlSurveyRepository from '../Persistence/MySQL/MySqlSurveyRepository';
 import InMemoryEventBus from '../Event/InMemoryEventBus';
+import SearchAllSurveys from '@App/Surveys/Application/Find/SearchAllSurveys';
 
 // Bootrstrap
 
@@ -22,7 +23,8 @@ const surveyRepository = new MySqlSurveyRepository();
 const eventBus = new InMemoryEventBus();
 
 const registerSurveyUseCase = new RegisterSurvey(surveyRepository,eventBus);
-const finderSurveyUseCase = new SearchSurvey(surveyRepository);
+const finderSurveyByIdUseCase = new SearchSurveyById(surveyRepository);
+const finderSurveyAllUseCase = new SearchAllSurveys(surveyRepository);
 
 // Routes
 
@@ -35,14 +37,14 @@ app.post('/api/v1/surveys', (request: Request, response: Response) => {
 })
 
 app.get('/api/v1/surveys', (request: Request, response: Response) => {
-    const surveys = finderSurveyUseCase.findAllSurveys();
+    const surveys = finderSurveyAllUseCase.findAllSurveys();
 
     response.json(surveys);
 })
 
 app.get('/api/v1/surveys/:Id', async (request: Request, response: Response) => {
     const Id = parseInt(request.params.Id);
-    const survey = await finderSurveyUseCase.findSurveyById(Id);
+    const survey = await finderSurveyByIdUseCase.findSurveyById(Id);
 
     response.json(survey);
 })

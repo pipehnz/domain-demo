@@ -10,12 +10,12 @@ export default class InMemorySurveyRepository implements SurveyRepository {
         this.surveys = [];
     }
 
-    findAllSurveys() {
+    getAll() {
         return this.surveys;
     }
 
-    findSurveyById(surveyId: SurveyId): Promise<Survey | undefined> {
-        return new Promise<Survey | undefined>((resolve, reject) => {
+    findById(surveyId: SurveyId): Promise<Survey> {
+        return new Promise<Survey>((resolve, reject) => {
             const survey = this.surveys.find((surveyFinded, index: number) => surveyFinded.toPrimitives().Id == surveyId.value());
 
             if (survey === null) {

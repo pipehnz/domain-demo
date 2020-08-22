@@ -3,19 +3,15 @@ import SurveyId from "@App/Surveys/Domain/SurveyId";
 import SurveyException from "@App/Surveys/Domain/SurveyException";
 import SurveyRepository from "@App/Surveys/Domain/SurveyRepository";
 
-export default class SearchSurvey {    
+export default class SearchSurveyById {
     private surveyRepository: SurveyRepository;
- 
+
     constructor(surveyRepository: SurveyRepository) {
         this.surveyRepository = surveyRepository;
     }
 
-    findAllSurveys() {
-        return this.surveyRepository.findAllSurveys();
-    }
-
     async findSurveyById(surveyId: number) {
-        return this.isValidSurvey(await this.surveyRepository.findSurveyById(SurveyId.create(surveyId)));
+        return this.isValidSurvey(await this.surveyRepository.findById(SurveyId.create(surveyId)));
     }
 
     private isValidSurvey(survey: Survey) {
