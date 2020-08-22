@@ -22,9 +22,7 @@ jobs:
     - uses: actions/checkout@v2
     - name: Use Node.js ${{ matrix.node-version }}
       uses: actions/setup-node@v1
-      env:
-        CODECOV_TOKEN: ${{ secrets.CODECOV_TOKEN }}
       with:
         node-version: ${{ matrix.node-version }}
     - run: npm install
-    - run: npm run test:ci -t $CODECOV_TOKEN
+    - run: npm run test:ci && npx codecov -t ${{ secrets.CODECOV_TOKEN }}
